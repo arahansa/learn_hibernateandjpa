@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Class-Path: eclipselink-2.4.1.jar javax.persistence-2.0.4.v20111216100
+ 9.jar commonj.sdo-2.1.1.v201112051852.jar derbyclient-10.8.3.0.jar
+

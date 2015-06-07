@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings version="2.1"
+  xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+                      http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/orm_2_1.xsd">
+<!--  
+<entity-mappings version="2.0"
+  xmlns="http://java.sun.com/xml/ns/persistence/orm"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+                      http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+                      -->
+
+	<!--
+		<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm
+		http://java.sun.com/xml/ns/persistence/orm_1_0.xsd" version="1.0">
+	-->
+
+	<description>override annotations</description>
+	<persistence-unit-metadata>
+	  <!--  
+	  <xml-mapping-metadata-complete/>
+	   -->
+		<persistence-unit-defaults>
+		    <!-- database schema/catalog: Comment it out when not needed -->				
+			<!--  	
+			<schema>jpatest</schema> 		
+			<catalog>jpatest</catalog>
+			-->
+			<access>FIELD</access>     <!-- mapping defined on fields, not getters -->
+			<!-- 
+			<cascade-persist />
+			 -->
+
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	
+	
+	<named-query name="selectVehiclesByMake">
+		<query>SELECT v FROM Vehicle v WHERE v.make = ?1</query>
+		<hint name="javax.persistence.cache.retrieveMode" value="BYPASS" />
+		<hint name="javax.persistence.query.timeout" value="1000" />
+	</named-query>
+	
+	
+	<!-- 
+	<entity class="jpatest.Vehicle" metadata-complete="true">
+		<table name="VEHICLE" />
+		<attributes>
+			<id name="vin">
+				<column name="VIN" length="17" />
+			</id>
+			<basic name="make" />
+			<basic name="model" />
+			<basic name="year" optional="true">
+				<column name="MODEL_YEAR" />
+			</basic>
+			<version name="version">
+				<column name="VERSION" />
+			</version>
+		</attributes>
+	</entity>
+	 -->
+	
+</entity-mappings>

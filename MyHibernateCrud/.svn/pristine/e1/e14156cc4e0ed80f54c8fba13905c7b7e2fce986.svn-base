@@ -1,0 +1,6 @@
+package hbguid.chap05;
+
+
+public abstract class CreditCard {
+
+}
